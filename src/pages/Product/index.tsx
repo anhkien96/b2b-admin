@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Kien: React.FC = () => {
+const Product: React.FC = () => {
 
     return (
         <div>Kien</div>
     );
 }
 
-export default Kien;
+export default Product;
