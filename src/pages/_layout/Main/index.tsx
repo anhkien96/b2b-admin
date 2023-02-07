@@ -11,7 +11,7 @@ import {
 import { Outlet, Link } from 'react-router-dom';
 
 import IRoute from '../../../global/routes/iRoute';
-import routes from '../../../global/routes';
+import { userRoutes } from '../../../global/user';
 
 import { theme, Breadcrumb, Layout, Menu } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
@@ -19,7 +19,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const createMenus = (routes: Array<IRoute>) => {
    const result: Array<any> = [];
    routes.forEach((r: IRoute) => {
-      if (!r.hide) {
+      if (!r.userHide && !r.hide) {
          if (r.children && r.children.length) {
             result.push(<Menu.SubMenu key={r.key} title={r.name} icon={r.icon}>
                {createMenus(r.children)}
@@ -33,7 +33,7 @@ const createMenus = (routes: Array<IRoute>) => {
    return result;
 };
 
-const menuList = createMenus(routes);
+const menuList = createMenus(userRoutes);
 
 const Main: React.FC = () => {
    const [collapsed, setCollapsed] = useState(false);

@@ -8,22 +8,25 @@ import './global/css/index.css';
 import Main from './pages/_layout/Main';
 
 import IRoute from './global/routes/iRoute';
-import routes from './global/routes';
+import { userRoutes } from './global/user';
 
 const root = ReactDOM.createRoot(
    document.getElementById('root') as HTMLElement
 );
 
+
 const createRoutes = (routes: Array<IRoute>) => {
    let result: Array<any> = [];
    routes.forEach((r: IRoute) => {
-      if (r.children && r.children.length) result = result.concat(createRoutes(r.children));
-      else result.push(<Route key={r.path} path={r.path} element={r.page}></Route>);
+      if (!r.userHide) {
+         if (r.children && r.children.length) result = result.concat(createRoutes(r.children));
+         else result.push(<Route key={r.path} path={r.path} element={r.page}></Route>);
+      }
    });
    return result;
 };
 
-const routeList = createRoutes(routes);
+const routeList = createRoutes(userRoutes);
 
 root.render(
    <React.StrictMode>

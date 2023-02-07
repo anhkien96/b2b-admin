@@ -5,6 +5,7 @@ export default interface IRoute {
     page?: React.ReactNode,
     icon?: React.ReactNode,
     children?: Array<IRoute>,
-    role?: Array<string>,
-    hide?: boolean
+    roles?: Array<string>,
+    hide?: boolean,
+    userHide?: boolean
 };
