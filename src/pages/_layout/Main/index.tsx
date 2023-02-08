@@ -40,7 +40,6 @@ const Main: React.FC = () => {
    const { token: { colorBgContainer } } = theme.useToken();
    const [collapsed, setCollapsed] = useState(false);
    const [mobiCollapsed, setMobiCollapsed] = useState(false);
-
    const [width, setWidth] = useState(window.innerWidth);
 
    useEffect(() => {
@@ -54,14 +53,14 @@ const Main: React.FC = () => {
    }, []);
 
    return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout>
 
          {width < 992 ?
             <Drawer className="mobi-menu" bodyStyle={{ padding: 0 }} width="260" placement='left' open={mobiCollapsed} onClose={() => setMobiCollapsed(false)}>
                {menu}
             </Drawer>
             :
-            <Sider collapsible breakpoint="lg" collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <Sider className="desk-menu" collapsible breakpoint="lg" collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
                <div style={{ height: 32, margin: 16, background: 'rgba(255,255,255,0.2)' }}></div>
                {menu}
             </Sider>
