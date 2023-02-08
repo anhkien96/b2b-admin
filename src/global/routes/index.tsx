@@ -26,6 +26,7 @@ export default [
         key: 'product_menu', name: 'Sản Phẩm', icon: <DesktopOutlined />, children: [
             { key: 'product_cat', name: 'Danh mục', path: '/product-category', page: <Product /> },
             { key: 'product', name: 'Sản phẩm', path: '/product', page: <Product /> },
+            { key: 'product_new', name: 'Thêm sản phẩm', path: '/product/new', page: <ProductEdit />, hide: true },
             { key: 'product_edit', name: 'Sửa sản phẩm', path: '/product/:id', page: <ProductEdit />, hide: true },
             { key: 'attr', name: 'Thuộc tính', path: '/product-attribute', page: <Product /> },
             { key: 'attr_group', name: 'Nhóm thuộc tính', path: '/product-attribute-group', page: <Product /> },

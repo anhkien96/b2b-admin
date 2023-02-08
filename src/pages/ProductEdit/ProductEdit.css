@@ -1,0 +1,21 @@
+.slide-enter {
+    opacity: 0;
+    overflow: hidden;
+}
+
+.slide-enter-active {
+    /* max-height: 500px; */
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.slide-exit {
+    /* max-height: 500px; */
+    opacity: 1;
+    overflow: hidden;
+}
+
+.slide-exit-active {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
